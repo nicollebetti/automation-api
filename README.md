@@ -1,4 +1,4 @@
-# Automação deapi desafio neon
+# Desafio Neon - Automação e cenários back-end
 
 ## Pre requisitos
 
