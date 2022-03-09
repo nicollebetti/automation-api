@@ -10,13 +10,8 @@ Cenário: Cadastrar um funcionário
  Quando retornar os dados dessa requisição POST
  Então a API irá retornar status 200 ao criar funcionário
 
-Cenário: Consultar somente um funcionário
- Dado que execute uma requisição GET para consulta de um funcionário por ID
- Quando retornar os dados dessa requisição GET com um único registro
- Então a API irá retornar status 200 ao retornar um funcionário
-
-Cenário: Deletar somente um funcionário
- Dado que execute uma requisição DELETE para apagar um funcionário por ID
- Quando retornar os dados dessa requisição DELETE com um único registro
- Então a API irá retornar status 200 ao retornar excluir funcionário
+Cenário: Listar todos os funcionários
+ Dado que execute uma requisição GET para consulta dos funcionários
+ Quando retornar os dados dessa requisição GET
+ Então a API irá retornar status 200 com a lista de funcionários
 

@@ -6,19 +6,11 @@ class Employee
         
     def initialize(body)
         @options = {:body => body}
-        @options2 = {}
+        @options2 = {:body => body}
     end
     
     def postEmployee
         self.class.post("/create", @options)
-    end
-
-    def getOneEmployee(id)
-        self.class.get("/employess#{id}", @options2)
-    end
-
-    def deleteEmployee(id)
-        self.class.delete("/employess#{id}", @options2)
     end
     
 end
