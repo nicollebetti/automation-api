@@ -10,33 +10,19 @@ end
 Então('a API irá retornar status {int} ao criar funcionário') do |int|
     expect($response.code).to eq(int)
     puts "Response code: #{$response.code}"
+    expect($response.message).to eq("OK")
+    puts "Response Message: #{$response.message}"
 end
 
-
-Dado('que execute uma requisição GET para consulta de um funcionário por ID') do
-     $get = @employee.getOneEmployee($id) 
+Dado('que execute uma requisição GET para consulta dos funcionários') do
+    $responseGet = HTTParty.get('http://dummy.restapiexample.com/api/v1/employees')
 end
   
-Quando('retornar os dados dessa requisição GET com um único registro') do
-    puts "Response code: #{$get.body}"
+Quando('retornar os dados dessa requisição GET') do
+    puts "Response body: #{$responseGet.body}"
 end
   
-Então('a API irá retornar status {int} ao retornar um funcionário') do |int|
-    expect($get.code).to eq(int)
-    expect($get["id"]).to eq($response["id"])
+Então('a API irá retornar status {int} com a lista de funcionários') do |int|
+    expect($responseGet.code).to eq(int)
+    puts "Response code: #{$responseGet.code}"
 end
-
-Dado('que execute uma requisição DELETE para apagar um funcionário por ID') do
-    $delete = @employee.deleteEmployee($response["id"])
-end
-  
-Quando('retornar os dados dessa requisição DELETE com um único registro') do
-    puts "Response code: #{$get.body}"
-end
-  
-Então('a API irá retornar status {int} ao retornar excluir funcionário') do |int|
-    expect($response.code).to eq(int)
-    puts "Response code: #{$response.code}"
-end
-
-
