@@ -1,11 +1,18 @@
 #language: pt
 @employee
-Funcionalidade: Manter dados dos empregados via API
+Funcionalidade: Manter dados dos funcionários via API
 Como um usuário da aplicação
 Eu quero realizar as requisições na API
-A fim de manipular as informações do cadastro dos empregados
+A fim de manipular as informações do cadastro dos funcionários
 
-Cenário: Cadastrar um empregado
-    Dado o endereço da API para manter o cadastro de um empregado
-    Quando realizar uma requisição para cadastrar uma empregado
-    Então a API irá retornar os dados do cadastro da Startup respondendo o código 200
+Cenário: Cadastrar um funcionário
+ Dado que execute uma requisição POST para cadastro de um funcionário
+ Quando retornar os dados dessa requisição POST
+ Então a API irá retornar status 200 ao criar funcionário
+
+Cenário: Consultar somente um funcionário
+ Dado que execute uma requisição GET para consulta de um funcionário por ID
+ Quando retornar os dados dessa requisição GET com um único registro
+ Então a API irá retornar status 200 ao retornar um funcionário
+
+

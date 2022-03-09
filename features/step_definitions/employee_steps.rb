@@ -1,13 +1,29 @@
-Dado('o endereço da API para manter o cadastro de um empregado') do
-    
-end
-  
-Quando('realizar uma requisição para cadastrar uma empregado') do
+Dado('que execute uma requisição POST para cadastro de um funcionário') do
     $response = @employee.postEmployee
 end
   
-Então('a API irá retornar os dados do cadastro da Startup respondendo o código {int}') do |int|
-  
-    puts "Response code: #{$response.body}"
-
+Quando('retornar os dados dessa requisição POST') do
+    puts "Response body: #{$response.body}"
+    
 end
+  
+Então('a API irá retornar status {int} ao criar funcionário') do |int|
+    expect($response.code).to eq(int)
+    puts "Response code: #{$response.code}"
+end
+
+
+Dado('que execute uma requisição GET para consulta de um funcionário por ID') do
+     $get = @employee.getOneEmployee($id) 
+end
+  
+Quando('retornar os dados dessa requisição GET com um único registro') do
+    puts "Response code: #{$get.body}"
+end
+  
+Então('a API irá retornar status {int} ao retornar um funcionário') do |int|
+    expect($get.code).to eq(int)
+    expect($get["id"]).to eq($response["id"])
+end
+
+

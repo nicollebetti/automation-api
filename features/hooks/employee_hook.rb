@@ -2,8 +2,8 @@
 Before '@employee' do
 
     @name = Faker::Name.name
-    @salary = Faker::Number.decimal_part(digits: 4)
-    @age = Faker::Number.decimal_part(digits: 2)
+    @salary = 6000
+    @age = 18
 
     @body = {
         "name": @name,
