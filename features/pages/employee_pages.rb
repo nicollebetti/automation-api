@@ -16,5 +16,9 @@ class Employee
     def getOneEmployee(id)
         self.class.get("/employess#{id}", @options2)
     end
+
+    def deleteEmployee(id)
+        self.class.delete("/employess#{id}", @options2)
+    end
     
 end
