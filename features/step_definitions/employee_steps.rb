@@ -26,4 +26,17 @@ Então('a API irá retornar status {int} ao retornar um funcionário') do |int|
     expect($get["id"]).to eq($response["id"])
 end
 
+Dado('que execute uma requisição DELETE para apagar um funcionário por ID') do
+    $delete = @employee.deleteEmployee($response["id"])
+end
+  
+Quando('retornar os dados dessa requisição DELETE com um único registro') do
+    puts "Response code: #{$get.body}"
+end
+  
+Então('a API irá retornar status {int} ao retornar excluir funcionário') do |int|
+    expect($response.code).to eq(int)
+    puts "Response code: #{$response.code}"
+end
+
 

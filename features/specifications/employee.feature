@@ -15,4 +15,8 @@ Cenário: Consultar somente um funcionário
  Quando retornar os dados dessa requisição GET com um único registro
  Então a API irá retornar status 200 ao retornar um funcionário
 
+Cenário: Deletar somente um funcionário
+ Dado que execute uma requisição DELETE para apagar um funcionário por ID
+ Quando retornar os dados dessa requisição DELETE com um único registro
+ Então a API irá retornar status 200 ao retornar excluir funcionário
 
